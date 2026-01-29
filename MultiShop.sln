@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		PortainerCmd.txt = PortainerCmd.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{0774F32C-826E-40ED-8240-DF7BEBAB026F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,7 @@ Global
 		{3C1C9794-0DB3-45FD-8E23-592FE83B7B11} = {43C1E289-1C02-43BA-9B92-5D7DA1546112}
 		{498FCB9F-BF6F-4497-B577-03727AA00451} = {F1366F9D-AE4E-4E2E-87BD-32FAB4FD95D1}
 		{EA14094F-FB55-5ABC-1402-B4229C4AD0B1} = {0E5848D3-B852-40C9-8491-8C131F222162}
+		{0774F32C-826E-40ED-8240-DF7BEBAB026F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55F57D4E-2D66-4723-85B2-27100A9B0CC8}
