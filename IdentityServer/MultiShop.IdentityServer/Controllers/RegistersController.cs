@@ -18,7 +18,7 @@ namespace MultiShop.IdentityServer.Controllers
             _userManager = userManager;
         }
         [HttpPost]
-        public async Task<IActionResult> RegisterUser(UserRegisterDto userRegisterDto)
+        public async Task<IActionResult> RegisterUser(UserRegisterDto userRegisterDto) 
         {
             var values = new ApplicationUser
             {
