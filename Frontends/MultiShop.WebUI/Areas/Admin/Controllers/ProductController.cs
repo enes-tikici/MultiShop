@@ -72,9 +72,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             List<SelectListItem> categoryValues = (from x in values
                                                    select new SelectListItem
                                                    {
-                                                         Text = x.CategoryName,
-                                                         Value = x.CategoryId
-                                                    }).ToList();
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId
+                                                   }).ToList();
             ViewBag.CategoryValues = categoryValues;
             return View();
         }
@@ -91,8 +91,20 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index", "Product", new { area = "Admin" });
             }
-            return View();
+            var responseCategory = await client.GetAsync("https://localhost:7070/api/Categories");
+            var jsonDataCategory = await responseCategory.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonDataCategory);
+
+            ViewBag.CategoryValues = (from x in values
+                                      select new SelectListItem
+                                      {
+                                          Text = x.CategoryName,
+                                          Value = x.CategoryId
+                                      }).ToList();
+
+            return View(createProductDto); // createProductDto'yu da içine koy ki yazdığın veriler silinmesin
         }
+
 
 
         [Route("DeleteProduct/{id}")]
@@ -122,11 +134,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
             var values1 = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData1);
             List<SelectListItem> categoryValues1 = (from x in values1
-                                                   select new SelectListItem
-                                                   {
-                                                       Text = x.CategoryName,
-                                                       Value = x.CategoryId
-                                                   }).ToList();
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = x.CategoryName,
+                                                        Value = x.CategoryId
+                                                    }).ToList();
             ViewBag.CategoryValues = categoryValues1;
 
             var client = _httpClientFactory.CreateClient();

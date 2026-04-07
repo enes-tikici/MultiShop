@@ -1,4 +1,4 @@
-﻿@model List<ResultFeatureSliderDto>
+﻿@model List<ResultFeatureDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,7 +15,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Görsel Başlığı</th>
+                                <th>Öne Çıkarılanlar Başlığı</th>
                                 <th>Sil</th>
                                 <th>Güncelle</th>
                             </tr>
@@ -25,16 +25,16 @@
                             {
                                 count++;
                                 <tr>
-                                    <th scope="row">@count</th>
+                                    <td>@count</td>
                                     <td>@item.Title</td>
-                                    <td><a href="/Admin/FeatureSlider/DeleteFeatureSlider/@item.FeatureSliderId" class="btn btn-danger">Sil</a></td>
-                                    <td><a href="/Admin/FeatureSlider/UpdateFeatureSlider/@item.FeatureSliderId" class="btn btn-warning">Güncelle</a></td>
+                                    <td><a href="/Admin/Feature/DeleteFeature/@item.FeatureId" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Admin/Feature/UpdateFeature/@item.FeatureId" class="btn btn-warning">Güncelle</a></td>
 
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="/Admin/FeatureSlider/CreateFeatureSlider/" class="btn btn-primary">Yeni Slider Göresel Girişi</a>
+                    <a href="/Admin/Feature/CreateFeature/" class="btn btn-primary">Öne Çıkarılan Alan Girişi</a>
                 </div>
             </div>
         </div>

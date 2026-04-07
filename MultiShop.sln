@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Catalog", "Services\Catalog\MultiShop.Catalog\MultiShop.Catalog.csproj", "{4C09C94E-FED9-4D13-88D8-2843B4ECC9B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{C4E4CA83-F962-4B04-9CB2-264EED39CEAE}"
+	ProjectSection(SolutionItems) = preProject
+		Services\Catalog\MultiShop.Catalog\Program.cs = Services\Catalog\MultiShop.Catalog\Program.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Discount", "Services\Discount\MultiShop.Discount\MultiShop.Discount.csproj", "{7BDBAB9D-E113-4D60-93FF-4F68835A43AA}"
 EndProject
