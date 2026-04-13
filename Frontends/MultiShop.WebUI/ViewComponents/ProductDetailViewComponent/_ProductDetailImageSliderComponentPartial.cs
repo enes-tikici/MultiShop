@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.ProductImageDtos;
 using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponent
@@ -16,12 +17,24 @@ namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponent
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductImages/ProductImagesByProductId?id=" + id);
+            // URL'deki ?id= kısmını silip sonuna direkt ID'yi ekle
+            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductImages/ProductImagesByProductId/" + id);
 
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<GetByIdProductImageDto>(jsonData);
+
+                var jObject = Newtonsoft.Json.Linq.JObject.Parse(jsonData);
+                var values = new GetByIdProductImageDto
+                {
+                    ProductImageId = jObject["productImageId"]?.ToString(),
+                    Image1 = jObject["image1"]?.ToString(),
+                    Image2 = jObject["image2"]?.ToString(),
+                    Image3 = jObject["image3"]?.ToString(),
+                    Image4 = jObject["image4"]?.ToString(),
+                    ProductId = jObject["productId"]?.ToString()
+                };
+
 
 
                 return View(values);

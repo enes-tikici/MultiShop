@@ -13,11 +13,11 @@ namespace MultiShop.Cargo.WebApi.Controllers
     public class CargoCustomersController : ControllerBase
     {
         private readonly ICargoCustomerService _cargoCustomerService;
-
         public CargoCustomersController(ICargoCompanyService cargoCompanyService)
         {
             _cargoCustomerService = cargoCompanyService;
         }
+
 
         [HttpGet]
         public IActionResult CargoCustomerList()
