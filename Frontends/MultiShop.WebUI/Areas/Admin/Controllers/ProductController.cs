@@ -91,18 +91,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index", "Product", new { area = "Admin" });
             }
-            var responseCategory = await client.GetAsync("https://localhost:7070/api/Categories");
-            var jsonDataCategory = await responseCategory.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonDataCategory);
-
-            ViewBag.CategoryValues = (from x in values
-                                      select new SelectListItem
-                                      {
-                                          Text = x.CategoryName,
-                                          Value = x.CategoryId
-                                      }).ToList();
-
-            return View(createProductDto); // createProductDto'yu da içine koy ki yazdığın veriler silinmesin
+            return View(); 
         }
 
 

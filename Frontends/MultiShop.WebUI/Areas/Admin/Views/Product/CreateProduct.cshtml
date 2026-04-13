@@ -22,7 +22,7 @@
                         <label>Ürün Görseli</label>
                         <input type="text" class="form-control" asp-for="ProductImageUrl" />
                         <br />
-                        <label>Ürün Adı</label>
+                        <label>Kategori Adı</label>
                         @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)
                         ViewBag.CategoryValues,new {@class="form-control"})
                         <br />
